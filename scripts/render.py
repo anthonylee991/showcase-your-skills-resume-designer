@@ -608,6 +608,9 @@ def validate(data):
             warns.append(f"{where}: cites [{n}] but there is no publications section.")
         elif not 1 <= n <= n_pubs:
             warns.append(f"{where}: cites [{n}] but the publications list has only {n_pubs} item{'s' if n_pubs != 1 else ''}.")
+    if isinstance(data.get("sections"), list) and not any(isinstance(s, dict) and s.get("type") == "graph" for s in data["sections"]):
+        warns.append('no "graph" section: the skills graph is part of the design. Add one that links each project '
+                     'to the technologies or tools it uses (see references/schema.md).')
     if highlights > 1:
         warns.append(f'{highlights} sections have "highlight": true; the tinted panel is meant to be used once.')
     return errs, warns, figures

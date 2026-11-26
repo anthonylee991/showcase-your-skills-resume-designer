@@ -97,7 +97,8 @@
         "tiny-bm25": ["Python", "Rust"],
         "Demand forecast": ["Python", "XGBoost", "BigQuery"]
       },
-      "also": ["Airflow", "dbt", "Kubernetes", "GCP", "AWS", "Terraform", "Looker"]
+      "also": ["Airflow", "dbt", "Kubernetes", "GCP", "AWS", "Terraform", "Looker"],
+      "seed": 12
     },
     {
       "type": "entries", "title": "Education",

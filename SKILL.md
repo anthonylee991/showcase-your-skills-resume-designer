@@ -10,7 +10,7 @@ A resume generator with one idea: **every claim has its proof beside it.** The l
 The page also carries:
 - a **career timeline** chart under the summary (every role as a bar, colored by kind of work, with a "now" line);
 - a tinted **current work** panel that separates present roles from past ones;
-- a **knowledge graph** linking projects to the technologies they use, which replaces a comma-separated skills list;
+- a **skills graph** (a knowledge graph linking projects to the technologies they use), which replaces a comma-separated skills list. It is part of the design, like the timeline: every resume gets one;
 - a numbered **publications** list that bullets can cite, like "[3]".
 
 You write a JSON file; `scripts/render.py` turns it into HTML and a PDF. Read `references/schema.md` for every field, and start from `examples/example.json` (fictional).
@@ -41,13 +41,13 @@ Two more things come from the same JSON:
    - Keep bullets to two lines, three at most. Active voice, plain words, no "responsible for", no filler adjectives.
    - Put present roles in a section with `"highlight": true` titled "Current work"; past roles in "Previous roles". Older or unrelated roles go in that section's `note` line and on the timeline only.
    - The timeline needs only `label`, `start`, `end` and `category` per bar. Use two or three categories at most (for example "Analytics" and "ML engineering").
-   - In the stack graph, list each project with the technologies it actually uses. Put infrastructure and minor tools in `also`. Keep the graph to roughly 6–9 projects and 12–20 technologies.
+   - Always include the skills graph (a `graph` section, usually titled "Stack" or "Skills"); the renderer warns when it is missing. List each project with the technologies it actually uses. Put infrastructure and minor tools in `also`. Keep the graph to roughly 6–9 projects and 12–20 technologies. For someone outside software, the nodes are whatever they work with: tools, methods, channels, markets. Take the projects from the bullets already on the page. Leave the graph out only if the person asks, or if they have fewer than three projects to link, where a graph says less than a list.
    - Set `"paper"` to `"letter"` for the United States and Canada and `"a4"` everywhere else, going by where the person is applying, not where they live.
 6. **Render:**
    ```
    python scripts/render.py path/to/resume.json --out path/to/output
    ```
-   It checks the JSON first. If a field is missing or malformed it renders nothing and lists every problem with its place in the file (for example `sections[1] "Previous roles" > roles[0] > claims[2]: "text" is missing`); fix them all and run it again. Lines that start with `warning:` do not stop the render, but resolve each one: a bullet citing a publication number that does not exist, or a chart value larger than its `max`, is a mistake on the page.
+   It checks the JSON first. If a field is missing or malformed it renders nothing and lists every problem with its place in the file (for example `sections[1] "Previous roles" > roles[0] > claims[2]: "text" is missing`); fix them all and run it again. Lines that start with `warning:` do not stop the render, but resolve each one: a bullet citing a publication number that does not exist, a chart value larger than its `max`, or a missing skills graph, is a mistake on the page.
 
    It then writes `<Name>-Resume.html` and `<Name>-Resume.pdf` and prints, in this order:
    - `sources:` how many margin figures have a source, and a list of those that do not. Give each one a source or remove the figure;
@@ -108,7 +108,7 @@ Cut words, not type size or margins. In this order:
 2. Move details that a margin chart already shows out of the bullet text.
 3. Merge two weak bullets in an older role into one.
 4. Move older roles into the `note` line (they stay on the timeline).
-5. Move minor tools from the graph into `also`.
+5. Move minor tools from the graph into `also`. Do not cut the graph itself to save space.
 6. Drop the weakest bullet of the oldest role.
 
 Tell the person every fact you removed.

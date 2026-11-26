@@ -70,7 +70,7 @@ Every section has `type` and `title`. Add `"highlight": true` to draw it as the 
   "seed": 7 }
 ```
 
-Project names become filled labels; technologies become circles sized by how many projects use them. Change `seed` if the layout comes out tangled.
+The skills graph is a standard part of the page: the renderer warns when no section of this type is present. Project names become filled labels; technologies become circles sized by how many projects use them. Change `seed` if the layout comes out tangled.
 
 ### `entries`
 

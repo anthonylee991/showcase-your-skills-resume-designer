@@ -6,11 +6,15 @@ The left column says what you did. A narrow margin on the right shows the measur
 
 ![Page 1 of the example resume](docs/example-page-1.png)
 
+Every resume also gets a **skills graph** in place of a skills list. It links each project to the technologies it runs on, and the technologies you use on the most projects are drawn largest, so a reader sees what you know and where you used it.
+
+![The skills graph from page 2 of the example resume](docs/example-graph.png)
+
 The person in the example is fictional. [See the full PDF](examples/example.pdf), or [page 2 as an image](docs/example-page-2.png).
 
 ## What you get
 
-- **A designed PDF** to send to people: margin figures, a career timeline, a tinted panel for current work, and a graph that links your projects to the technologies they use.
+- **A designed PDF** to send to people: margin figures, a career timeline, a tinted panel for current work, and the skills graph that links your projects to the technologies they use.
 - **A plain PDF and Word file** for application forms: one column, no charts, standard headings, same words and numbers. ([example](examples/example-plain.pdf))
 - **Tailored versions** for individual jobs, checked against your master resume so that no number, date or job title can change between versions.
 - **A list of sources**: every figure on the page next to where it came from.
@@ -73,6 +77,7 @@ python scripts/render.py my-resume.json --plain --sources
 
 Before rendering it checks the file and names every missing or malformed field. After rendering it reports:
 
+- a missing skills graph;
 - margin figures that have no source;
 - the page count;
 - layout problems: bullets over three lines, nearly empty last lines, figures that wrap, timeline labels that run off the edge, graph labels that overlap.
