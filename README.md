@@ -23,6 +23,30 @@ Claude drafts the resume, asks you to confirm anything it could not verify, and 
 
 The result is as strong as your evidence. If you have measurable results, the margin fills up. If you do not, you get a clean layout with gaps that show you where proof is missing.
 
+## Who it suits best
+
+Any resume can use the layout, but each part of the page rewards a particular kind of career. It suits you best if your work produces numbers, spans several projects or tools, or changed direction along the way.
+
+| Profession | Why the page works for it |
+| :--- | :--- |
+| Software, data and machine learning engineers | Latency, accuracy, uptime and cost fill the margin. Comparison bars show before and after, or your system against a baseline. The graph shows which technologies you used on which project, which a skills list cannot. |
+| Data analysts and data scientists | Forecast error, model lift and time saved are margin figures by nature, and the comparison bars are made for "old method against new". |
+| Product managers | Adoption, retention and conversion sit beside the feature that moved them, so the reader sees outcomes before features. |
+| Growth, performance and lifecycle marketers | Conversion rates, cost per acquisition, revenue and open rates. Range bars suit results that vary by campaign. |
+| Sales and account management | Quota attainment as a fill bar, deal size, pipeline and renewal rates. The margin reads like a scorecard. |
+| Operations, supply chain and logistics | Hours saved, error rates, throughput and cost, usually with a clear before and after. |
+| Customer success and support leaders | Retention, response times and satisfaction scores, each tied to the change that produced it. |
+| Researchers moving into industry | The numbered publications list lets a bullet cite the paper behind it, and benchmark results fit the comparison bars. |
+| Consultants, freelancers and agency owners | Many clients and projects at once: the timeline shows overlapping engagements, and the graph ties each project to its tools. |
+| Founders and early-stage operators | Revenue, team size and customers as margin figures, with the timeline showing ventures that ran in parallel. |
+| Career changers | The timeline colors each role by kind of work, so a move from one field to another reads as a clear story, not a gap. |
+
+It suits you less if:
+
+- **your results are hard to put a number on**, as in much of teaching, care work, law and the creative fields. You still get a clean layout, but most margins stay empty, and a conventional resume may serve you as well;
+- **your field expects a fixed format**, such as an academic CV of many pages, a government application or a legal resume. Use the format your field expects;
+- **your work is judged by a portfolio**, as in visual design, illustration or photography. Lead with the portfolio.
+
 ## Install
 
 You need Python 3.8 or later, and Chrome, Edge or Chromium for the PDF step. Nothing else: the scripts use only Python's standard library, and the fonts are included.
