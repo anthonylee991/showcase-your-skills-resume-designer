@@ -1,0 +1,126 @@
+{
+  "_comment": "Fictional sample. Every person, company, number and source here is invented.",
+  "name": "Maya Okafor",
+  "headline": "Machine learning engineer, search and recommendation systems",
+  "paper": "a4",
+  "as_of": "2026-11",
+  "theme": { "accent": "#0F6E6E" },
+  "contact": [
+    ["Lisbon, Portugal (remote, UTC+0)", "EU citizen"],
+    [{ "text": "+351 900 000 000", "href": "tel:+351900000000" }, { "text": "maya@example.com", "href": "mailto:maya@example.com" }],
+    [{ "text": "mayaokafor.example", "href": "https://example.com" }, { "text": "github.com/maya-example", "href": "https://example.com" }]
+  ],
+  "summary": "Machine learning engineer with 6 years building search and recommendation systems, after 4 years as a data analyst in retail. Leads ranking at a grocery marketplace and maintains an open-source evaluation toolkit that 300+ teams use.",
+  "timeline": {
+    "categories": {
+      "analytics": { "label": "Analytics", "color": "#A9B3C1" },
+      "ml": { "label": "ML engineering", "color": "#0F6E6E" }
+    },
+    "bars": [
+      { "label": "Northwind Retail: data analyst", "start": "2016-09", "end": "2020-08", "category": "analytics" },
+      { "label": "Lumen Health", "start": "2020-09", "end": "2023-03", "category": "ml" },
+      { "label": "Basket (grocery marketplace)", "start": "2023-04", "end": "present", "category": "ml" },
+      { "label": "Rankwise (open source)", "start": "2022-01", "end": "present", "category": "ml" }
+    ]
+  },
+  "sections": [
+    {
+      "type": "roles", "title": "Current work", "highlight": true,
+      "roles": [
+        {
+          "title": "Staff ML Engineer, Search", "org": "Basket, remote", "dates": "Apr 2023 – present",
+          "claims": [
+            { "lead": "Two-stage product search.", "text": "Replaced keyword search with hybrid retrieval and a learned reranker across 1.2M products; zero-result searches fell from 9% to 2%.",
+              "evidence": { "value": "+14%", "label": "search conversion, A/B test over 6 weeks", "source": "Experiment report EXP-212, Basket analytics, Jun 2024" } },
+            { "lead": "Substitution model.", "text": "Ranked replacements for out-of-stock items using basket context; shoppers now accept the first suggestion most of the time.",
+              "evidence": { "value": "71%", "label": "first suggestion accepted", "source": "Substitutions dashboard, Q3 2026 average", "chart": { "type": "fill", "value": 0.71 } } },
+            { "lead": "Faster ranking.", "text": "Moved the reranker to a distilled model with cached product embeddings, so results arrive before the shopper finishes typing.",
+              "evidence": { "value": "140 ms", "label": "95th-percentile latency", "source": "Search service latency dashboard, Oct 2026; 420 ms from the Mar 2025 baseline report", "chart": { "type": "bars", "items": [ { "label": "Now", "value": 140, "highlight": true }, { "label": "Before", "value": 420 } ] } } },
+            { "lead": "Evaluation in CI.", "text": "Every ranking change runs against 3,000 judged queries before release, and regressions block the merge.", "refs": [3],
+              "evidence": { "value": "3,000", "label": "judged queries per release", "source": "eval/judged_queries.jsonl in the search repo, row count" } }
+          ]
+        },
+        {
+          "title": "Creator and maintainer", "org": "Rankwise (open source)", "dates": "Jan 2022 – present",
+          "claims": [
+            { "lead": "Offline ranking evaluation.", "text": "Toolkit for judging and comparing search rankings without a live experiment, used by 300+ teams.", "refs": [1],
+              "evidence": { "value": "2,400", "label": "GitHub stars", "source": "github.com/maya-example/rankwise, read Nov 2026" } },
+            { "lead": "Judge agreement.", "text": "Built-in statistics that show when an LLM judge can stand in for human labels, validated on 5 public datasets.", "refs": [1, 4],
+              "evidence": { "value": "0.78", "label": "agreement with human labels (kappa)", "source": "Table 2 of publication 1", "chart": { "type": "fill", "value": 0.78 } } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "roles", "title": "Previous roles",
+      "roles": [
+        {
+          "title": "ML Engineer", "org": "Lumen Health, Berlin", "dates": "Sep 2020 – Mar 2023",
+          "claims": [
+            { "lead": "Clinical note search.", "text": "Built semantic search over 40M de-identified notes for research teams, with access controls per study and an audit log for every query.",
+              "evidence": { "value": "0.81", "label": "nDCG@10, up from 0.62", "source": "Lumen search evaluation, Jan 2023, 500 judged queries", "chart": { "type": "bars", "max": 1, "items": [ { "label": "New", "value": 0.81, "highlight": true }, { "label": "Old", "value": 0.62 } ] } } },
+            { "lead": "Cohort finder.", "text": "Let researchers describe a patient group in plain language and get a reviewable query, replacing a request queue handled by two analysts.",
+              "evidence": { "value": "9 days to 1", "label": "median wait for a cohort", "source": "Research-ops ticket export, 2021 vs. 2022; confirmed by Maya, Nov 2026" } },
+            { "lead": "Model monitoring.", "text": "Drift alerts and weekly accuracy reports for 12 production models, owned with the platform team.", "evidence": null }
+          ]
+        },
+        {
+          "title": "Data Analyst", "org": "Northwind Retail, Porto", "dates": "Sep 2016 – Aug 2020",
+          "claims": [
+            { "lead": "Weekly demand forecast.", "text": "Replaced a spreadsheet forecast with a gradient-boosted model per product family across 230 stores.",
+              "evidence": { "value": "11%", "label": "forecast error, down from 18%", "source": "Northwind forecast review deck, 2019; confirmed by Maya, Nov 2026", "chart": { "type": "bars", "max": 20, "items": [ { "label": "Model", "value": 11, "highlight": true }, { "label": "Sheet", "value": 18 } ] } } },
+            { "lead": "Promotions dashboard.", "text": "Gave category managers a same-day view of promotion uplift, which had taken a week to compile by hand.", "evidence": null }
+          ]
+        }
+      ],
+      "note": "Earlier: Teaching assistant, statistics, University of Porto (2015 – 2016)."
+    },
+    {
+      "type": "projects", "title": "Open-source projects",
+      "items": [
+        { "name": "tiny-bm25", "year": "2021", "text": "Dependency-free BM25 index for Python with a Rust core, fast enough for a million short documents on a laptop.",
+          "evidence": { "value": "4–6×", "label": "faster than the reference library", "source": "benchmarks/README.md in the tiny-bm25 repo", "chart": { "type": "range", "from": 4, "to": 6, "max": 7, "baseline": 1 } } },
+        { "name": "querylog-scrub", "year": "2024", "text": "Removes names, addresses and card numbers from search logs before they are used for training or shared with vendors.",
+          "evidence": { "value": "308 of 320", "label": "planted identifiers caught", "source": "tests/planted_identifiers report in the querylog-scrub repo", "chart": { "type": "fill", "value": 308, "max": 320 } } },
+        { "name": "judged-grocery", "year": "2025", "text": "Public test set of 3,000 grocery search queries with graded results in 4 languages, so other teams can compare rankers on the same questions.", "refs": [2],
+          "evidence": { "value": "3,000", "label": "judged queries, 4 languages", "source": "Dataset card for judged-grocery" } }
+      ]
+    },
+    {
+      "type": "graph", "title": "Stack",
+      "graph": {
+        "Product search": ["Python", "PyTorch", "OpenSearch", "Rerankers", "Kafka"],
+        "Substitutions": ["Python", "PyTorch", "Feature store", "BigQuery"],
+        "Note search": ["Python", "Embeddings", "PostgreSQL + pgvector", "Rerankers"],
+        "Cohort finder": ["Python", "LLM APIs", "PostgreSQL + pgvector"],
+        "Rankwise": ["Python", "Evals", "DuckDB", "LLM APIs"],
+        "tiny-bm25": ["Python", "Rust"],
+        "Demand forecast": ["Python", "XGBoost", "BigQuery"]
+      },
+      "also": ["Airflow", "dbt", "Kubernetes", "GCP", "AWS", "Terraform", "Looker"]
+    },
+    {
+      "type": "entries", "title": "Education",
+      "items": [
+        { "title": "MSc Computer Science", "org": "University of Porto", "detail": "(thesis on learning to rank)", "dates": "2016" },
+        { "title": "BSc Mathematics", "org": "University of Lagos", "dates": "2014" }
+      ]
+    },
+    {
+      "type": "entries", "title": "Teaching and community",
+      "items": [
+        { "title": "Guest lecturer, information retrieval", "org": "University of Lisbon", "detail": "(6 sessions a year)", "dates": "2024 – present" },
+        { "title": "Co-organiser", "org": "Lisbon Search and Recommendation Meetup", "dates": "2023 – present" }
+      ]
+    },
+    {
+      "type": "publications", "title": "Talks and papers",
+      "items": [
+        { "title": "Judging the Judges: Agreement Statistics for Offline Search Evaluation", "venue": "SIGIR workshop", "date": "Jul 2025", "url": "https://example.com" },
+        { "title": "A Multilingual Grocery Search Test Collection", "venue": "Dataset paper, pre-print", "date": "Mar 2025", "doi": "10.0000/example.456" },
+        { "title": "Shipping Rankers Safely: Evaluation Gates in Continuous Integration", "venue": "Haystack EU talk", "date": "Sep 2024", "url": "https://example.com", "link_label": "Video" },
+        { "title": "When Can a Language Model Grade Search Results?", "venue": "Pre-print", "date": "Feb 2024", "doi": "10.0000/example.123" }
+      ]
+    }
+  ]
+}

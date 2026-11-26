@@ -1,0 +1,91 @@
+/* Showcase Your Skills resume designer: two-column layout, claims on the left, measured results in the margin. */
+:root {
+  --ink: #1C2430; --graphite: #5B6573; --rule: #D9DEE5;
+  --serif: "Source Serif 4", Georgia, serif;
+  --cond: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --ev-w: 1.2in; --gap: 0.22in;
+  /* --accent, --accent-tint, --panel, --panel-rule, --now are injected by render.py */
+}
+@page {
+  size: Letter; margin: 0.45in 0.55in;
+  @top-right { font: 7.5pt "IBM Plex Sans Condensed", sans-serif; color: #5B6573; }
+}
+@page :first { @top-right { content: none; } }
+* { box-sizing: border-box; }
+body {
+  margin: 0 auto; max-width: 7.4in; color: var(--ink);
+  font: 9.4pt/1.34 var(--serif); font-optical-sizing: auto;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* masthead */
+.masthead { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: var(--gap);
+  padding-bottom: .12in; border-bottom: 1.25pt solid var(--ink); }
+.name { margin: 0; font-size: 31pt; font-weight: 600; line-height: .95; letter-spacing: -.015em; font-variation-settings: "opsz" 60; }
+.headline { margin: .06in 0 0; font-size: 11.5pt; font-style: italic; color: var(--graphite); }
+.contact { font: 8.1pt/1.5 var(--cond); color: var(--graphite); text-align: right; font-style: normal; }
+
+.intro { display: grid; grid-template-columns: 1fr var(--ev-w); column-gap: var(--gap); margin-top: .12in; align-items: start; }
+.summary { margin: 0; font-size: 9.9pt; line-height: 1.42; }
+.legend { font: 7.6pt/1.5 var(--cond); color: var(--graphite); border-left: 1pt solid var(--rule); padding-left: .1in; }
+.legend i { display: inline-block; width: .16in; height: .075in; border-radius: 1.5px; margin-right: .05in; }
+.legend i.line { height: .02in; vertical-align: .02in; }
+
+figure { margin: .1in 0 0; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font: 7.8pt var(--cond); color: var(--graphite); margin-top: .03in; }
+
+/* sections: heading with a rule to the page edge */
+section { margin-top: .12in; }
+h2 { display: flex; align-items: center; gap: .1in; margin: 0 0 .05in; font-size: 12.5pt; font-weight: 700; break-after: avoid; }
+h2::after { content: ""; flex: 1; border-top: .75pt solid var(--ink); }
+section.panel { background: var(--panel); border-left: 2.5pt solid var(--accent); padding: .07in .12in .09in; }
+section.panel h2 { color: var(--accent); }
+section.panel h2::after { border-top-color: var(--accent); }
+
+.role-block { margin-top: .09in; }
+h2 + .role-block { margin-top: .02in; }
+.role-head, .claim, .entry { display: grid; grid-template-columns: 1fr var(--ev-w); column-gap: var(--gap); }
+.role-head { align-items: baseline; break-after: avoid; }
+.role-title { font-weight: 600; font-size: 10.5pt; }
+.role-org { color: var(--graphite); font-style: italic; }
+.dates { font: 8.3pt var(--cond); color: var(--graphite); font-variant-numeric: tabular-nums; }
+
+ul.claims { list-style: none; margin: .03in 0 0; padding: 0; }
+.claim { padding: .018in 0; break-inside: avoid; }
+/* The dot is an inline box pulled into the padding. Do not position it (or the paragraph):
+   Chrome writes positioned elements to the PDF after everything else, which detaches every
+   bullet from its role when a parser reads the text. */
+.claim p { margin: 0; padding-left: .13in; }
+.claim p::before { content: ""; display: inline-block; width: .055in; height: .055in; margin-left: -.13in; margin-right: .075in; border-radius: 50%; background: var(--accent); vertical-align: baseline; }
+.claim strong { font-weight: 600; }
+
+/* margin evidence */
+.ev { border-left: 1pt solid var(--rule); padding-left: .1in; font: 7.6pt/1.15 var(--cond); color: var(--graphite); align-self: start; }
+section.panel .ev { border-left-color: var(--panel-rule); }
+.ev b { display: block; font-weight: 600; font-size: 14pt; line-height: 1.05; color: var(--accent); font-variant-numeric: tabular-nums lining-nums; letter-spacing: -.01em; }
+.ev:empty { border-left-color: transparent !important; }
+.ev svg.mini { display: block; width: 100%; height: auto; margin-top: .035in; }
+cite.ref { font: normal 7.8pt var(--cond); color: var(--accent); }
+
+.entries { margin: 0; padding: 0; list-style: none; }
+.entry { padding: .012in 0; }
+.note { margin: .03in 0 0; font-size: 8.8pt; }
+.note span { font-family: var(--cond); color: var(--graphite); font-size: 8pt; }
+
+ol.refs { margin: 0; padding-left: .28in; }
+ol.refs li { padding: .004in 0; font-size: 8.6pt; line-height: 1.33; }
+ol.refs li::marker { font: 8.2pt var(--cond); color: var(--accent); }
+ol.refs .meta { font: 7.9pt var(--cond); color: var(--graphite); white-space: nowrap; }
+ol.refs a.link { font: 500 7.9pt var(--cond); color: var(--accent); text-decoration: underline; text-decoration-thickness: .5pt; text-underline-offset: 1.5pt; }
+
+@media screen { body { padding: .45in .55in; max-width: 8.5in; } }
+@media screen and (max-width: 700px) {
+  body { padding: 20px 16px; font-size: 15px; }
+  .masthead, .intro, .role-head, .claim, .entry { grid-template-columns: 1fr; }
+  .contact { text-align: left; }
+  .ev { border-left: 0; padding-left: .13in; margin-top: 4px; }
+  .ev:empty, .legend { display: none; }
+}
